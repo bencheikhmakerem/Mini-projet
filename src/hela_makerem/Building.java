@@ -17,7 +17,7 @@ public class Building {
     public static final int MAX_NUMBER_OF_PEOPLE_IN_LINE = 7;
 
     public static final float PROBABILITY_TO_SEE_A_NEW_PERSON_IN_LINE = 0.025f;
-    public static Random random = new Random();
+    public static Random random = new Random(10L);
 
     public static void main(String[] args) {
 
@@ -28,7 +28,7 @@ public class Building {
         events.put(time, startEvent);
 
         WaitingList peopleWaitingPerFloor = new WaitingList();
-        Elevator elevator =  new DumbElevator(ELEVATOR_CAPACITY);
+        Elevator elevator =  new ABetterElevator(ELEVATOR_CAPACITY);
 
         int totalNumberOfPeople = peopleWaitingPerFloor.countPeople();
         elevator.peopleWaiting(peopleWaitingPerFloor.getLists());
